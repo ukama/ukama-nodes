@@ -1,2 +1,2 @@
 # ukama-nodes
-Ukama hardware nodes
+Ukama hardware stuff
