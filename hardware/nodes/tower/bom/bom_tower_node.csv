@@ -1,0 +1,32 @@
+Serial,Category,part_number,Quantity,Description,Remarks,Vendor,Link,Notes
+1,Screws,    ,4,Stand-off for TRX and COM module,M3 x 15mm,mcmaster-carr,https://www.hardwarespecialty.com/Catalog/Products/Electronic-Hardware/Spacers-And-Standoffs/Standoffs/Male-Female-Standoffs/1006463,
+2,Screws,95836A205,2,To fix COM module,M3 x 6mm,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~6-mm/drive-style~phillips/,
+3,Screws,95836A205,8,COM with TRX - internal,M3 x 6mm,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~6-mm/drive-style~phillips/,
+4,Screws,95836A333,12,Chassis - Top with bottom cover,M4 x 6mm,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m4/length~6-mm/drive-style~phillips/rounded-head-style~pan/,
+5,Screws,95836A260,4,Mounting Screws big,M6 x 8mm,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m6/length~8-mm/drive-style~phillips/rounded-head-style~pan/thread-pitch~1-mm/,
+6,Screws,95836A205,4,tower node cup,M3 x 6mm,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~6-mm/drive-style~phillips/,
+7,Screws,95836A205,2,RJ45,M3 x 6mm,mcmaster-carr,https://www.mcmaster.com/m3x6mm-csk/system-of-measurement~metric/thread-size~m3/length~6-mm/countersink-angle~90-/drive-style~phillips/,
+8,TIM,,1,Silicone Elastomer,"L-210MM
+ W-155MM
+ T-1.5MM",Fujipoly,,
+9,Screws,,2,Steel,"M6x 60mm 
+  Standard Bright Zinc Plated 
+  Steel U Bolt & 2 Nuts",mcmaster-carr,https://www.mcmaster.com/band-clamps/u-bolts-6/,
+10,Screws,,2,201 SS,"Width 12.7MM,
+  Thickness 0.76MM , 
+  Lenght 250MM Min",mcmaster-carr,https://www.mcmaster.com/band-clamps/clamp-type~worm-drive/general-purpose-worm-drive-clamps-for-firm-hose-and-tube-9/,
+11,Gland,,1,,,digikey,https://www.amazon.com/s?k=PG7-CABEL+GLAND&crid=2MPEJLEBGORZ4&sprefix=pg7-cabel+gland%2Caps%2C808&ref=nb_sb_noss,
+12,Lug,YAV0252M3,2,,YAV0252M3,mcmaster-carr,https://www.mcmaster.com/lugs/terminal-type~lug/number-of-holes~2/wire-connection-type~compression/,
+13,Connector,"
+T4171020008-001",1,,Male,digikey,https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/T4171010005-001/7927449?s=N4IgTCBcDaICoBYCMB2JAGD70FYC02SIAugL5A,
+14,Cable,,5,,"OUTER-DIA
+ 0.81MM
+ LENGTH-50MM. TX/RX/GPS",digikey,https://www.digikey.com/en/products/detail/amphenol-rf/336313-14-0050/5417998?s=N4IgTCBcDaIMxwGxwIxwLQoCzoAy4FZcQBdAXyA,
+15,Cable,,1,,"OUTER-DIA
+ 2.5MM
+ LENGTH-80MM",Ukama,,
+16,Cable,,3,,TX/RX cables from FEM to TN,Mouser,https://www.mouser.com/ProductDetail/Mini-Circuits/141-9SM+?qs=xZ/P%2Ba9zWqZxrql9OiytXA%3D%3D,
+17,Cable,,1,,GPIO Cables from TN to FEM,Ukama,github link to the file,
+18,Heatsink,,1,Aluminium,custom,Ukama,github link to the file,
+19,Heatsink,,1,Aluminium,custom,Ukama,github link to the file,
+20,Heatsink,,1,Aluminium,custom,Ukama,github link to the file,
