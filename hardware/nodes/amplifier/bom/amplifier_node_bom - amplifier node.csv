@@ -1,0 +1,20 @@
+Serial,Category,part_number,Remarks,Description,Quantity,Vendor,Link,Notes
+1,Screws,91420A120,M3x10mm,FEMA Outside,10,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~10-mm/head-type~flat/drive-style~phillips/,
+2,Screws,91420A116,M3x6mm,Ethernet port,2,mcmaster-carr,https://www.mcmaster.com/m3x6mm-csk/system-of-measurement~metric/thread-size~m3/length~6-mm/countersink-angle~90-/drive-style~phillips/,
+3,Screws,91420A120,M3x10mm,FEMA Cap,2,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~10-mm/head-type~flat/drive-style~phillips/,
+4,Screws,92000A126,M3x16mm,FEMA inside,6,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/drive-style~phillips/length~16-mm/thread-pitch~0-5-mm-1/,
+5,Screws,92000A417,M6x8mm,Mounting ,2,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m6/length~8-mm/drive-style~phillips/rounded-head-style~pan/thread-pitch~1-mm/,
+6,Screws,91420A120,M3x10mm,Lug,2,mcmaster-carr,https://www.mcmaster.com/screws/system-of-measurement~metric/thread-size~m3/length~10-mm/head-type~flat/drive-style~phillips/,
+7,Antenna,,LTE RF ANT,,1,KP Performance,,LTE RF ANT
+8,Cable,,LTE ANT CABLE,,1,KP Performance,,LTE ANT CABLE
+9,Antenna,,GPS ANT,,1,L-COM,,GPS ANT
+10,Cable,,GPS ANT CABLE,,1,KP Performance,,GPS ANT CABLE
+11,Cable,,"GPS-CABLE
+ SMA(F)-SMA(F)",,1,Mouser,https://www.mouser.in/ProductDetail/Amphenol-RF/135113-02-1200?qs=3WadRV20yGxS%2FOxa9JjaDA%3D%3D,"GPS-CABLE
+ SMA(F)-SMA(F)"
+12,Cable,,UFL-SMA(F) CABLE-1,,3,digikey,https://www.digikey.com/en/products/detail/amphenol-rf/336313-14-0050/5417998?s=N4IgTCBcDaIMxwGxwIxwLQoCzoAy4FZcQBdAXyA,UFL-SMA(F) CABLE-1
+13,Connector,,GPIO,Female,1,digikey,https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/T4171020008-001/9837147,GPIO
+14,TIM,,Silicone Elastomer,,1,Fujipoly,Fujipoly,
+15,Radome,,band specific,,1,Ukama,github link to file,
+16,Label,,,,1,Ukama,github link to file,
+17,Spacer,,10mm,,6,Ukama,github link to file,

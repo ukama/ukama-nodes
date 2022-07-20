@@ -1,0 +1,1 @@
+stuff for amplifier node
