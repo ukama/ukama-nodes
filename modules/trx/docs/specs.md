@@ -16,8 +16,8 @@ The TowerNode system is designed to operate at below environmental conditions
 ####Hardware features
 •	TowerNode is compliant with IEEE 802.3bt standard Powered Device with maximum power rating of 71.3W. 
 •	TowerNode system architecture comprises of two modules: TRX and COM
-•	TRX module is based on CNF7130 processor from Marvell which is used for Baseband processing
-•	CNF7130 is a quad core MIPS64 processor with Uplink/Downlink hardware accelerators
+•	TRX module is based on a LTE-SoC from Marvell which is used for Baseband processing
+•	LTE-SoC is a quad core MIPS64 processor with Uplink/Downlink hardware accelerators
 •	TRX module has below memory options:
   --	4GB DDR3L as RAM memory
   --	128MB NOR Flash as boot storage
