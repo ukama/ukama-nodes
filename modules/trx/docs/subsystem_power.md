@@ -6,9 +6,11 @@ TRX module is powered with IEEE 802.3bt Type 4 Class 8 PoE. A PD controller is u
 
 Below diagram represents the power architecture of TRX module:
 
---Power tree to be inserted here--
+![power tree](https://ukama-site-assets.s3.amazonaws.com/hardware/Power%20Tree_1.png)
 
-Input supply,12V goes through a PMBus/I2C complaint controller to measure, protect and control the electrical operating conditions. Protected 12V supply is provided to COM module, mask module and is also converted to 5V from a step-down DC/DC converter. 5V is converted to 3.3V through a step down converter, 1.1V for LTE-SoC through a buck converter and 1.35V for LTE-SoC through a step down converter. 3.3V is a major supply for TRX module and is used for LTE-SoC, NOR Flash, eMMC, Ethernet PHY, OCXO, GPS module, sensors and EEPROMs. Secondary supplies of LTE-SoC such as 1.5V, 1.8V and VTT supply for DDR memories are generated from 3.3V supply through voltage regulators. 1.8V is further converted to 1.3V required for RF Transceiver through a LDO. 
+Input supply,12V goes through a PMBus/I2C complaint controller to measure, protect and control the electrical operating conditions. 
+Protected 12V supply is provided to COM module, mask module and is also converted to 5V from a step-down DC/DC converter. 5V is then converted to various supplies like 3.3V through a step down converter, 1.1V for LTE-SoC through a buck converter and 1.35V for LTE-SoC through a step down converter. 
+3.3V is a major supply for TRX module and is used for LTE-SoC, NOR Flash, eMMC, Ethernet PHY, OCXO, GPS module, sensors and EEPROMs. Secondary supplies of LTE-SoC such as 1.5V, 1.8V and VTT supply for DDR memories are generated from 3.3V supply through voltage regulators. 1.8V is further converted to 1.3V required for RF Transceiver through a LDO. 
 
 ####Power Sequence
 
@@ -18,7 +20,7 @@ Power sequence of TRX module is as shown below:
 
 High level Power sequence followed in TRX module design is in the order of System supplies -> LTE-SoC -> DDR -> System Reset release. 
 
-System input supply 12V is converted to 5V initially with a time delay of 50ms. The step-down converter used to convert 5V to 3.3V will have a delay of 30ms. 
+System input supply 12V is converted to 5V initially with a time delay of 10ms. The step-down converter used to convert 5V to 3.3V will have a delay of 5ms. 
 Once 3.3V is stable, the 3.3V power good signal asserted from step-down converter will drive enable pins of buck/dtep-down converters of LTE-SoC power supplies(1.8V, 1.5V and 1.1V). 
 
 A stable 1.1V will assert power good signal from buck converter which is used to enable remaining power supplies of LTE-SoC (1.35V and VTT).
