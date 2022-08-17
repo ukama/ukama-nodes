@@ -2,11 +2,13 @@
 
 ####Power tree
 
-TRX module is powered with IEEE 802.3bt Type 4 Class 8 PoE. A PD controller from Analog, LT4295 is used along with dual ideal diode bridge controller, LT4321 to receive power from  data/spare pairs of ethernet cable. LT4295 PD controller is configured to convert 50-57V of PoE supply to 12V DC supply which will be input supply for the TowerNode system. A provision of connecting DC supply from external power source is also made. In scenarios where both PoE and external DC supply are connected, system will disable PoE and considers external DC supply only. 
+TRX module is powered with IEEE 802.3bt Type 4 Class 8 PoE. A PD controller is used along with dual ideal diode bridge controller to receive power from  data/spare pairs of ethernet cable. PD controller is configured to convert 50-57V of PoE supply to 12V DC supply which will be input supply for the TowerNode system. A provision of connecting DC supply from external power source is also made. In scenarios where both PoE and external DC supply are connected, system will disable PoE and considers external DC supply only. 
 
-12V supply is then converted into other supplies required by the system as mentioned in below tree:
+Below diagram represents the power architecture of TRX module:
 
 --Power tree to be inserted here--
+
+Input supply,12V goes through a PMBus/I2C complaint controller to measure, protect and control the electrical operating conditions. Protected 12V supply is provided to COM module, mask module and is also converted to 5V from a step-down DC/DC converter. 5V is converted to 3.3V through a step down converter, 1.1V for LTE-SoC through a buck converter and 1.35V for LTE-SoC through a step down converter. 3.3V is a major supply for TRX module and is used for LTE-SoC, NOR Flash, eMMC, Ethernet PHY, OCXO, GPS module, sensors and EEPROMs. Secondary supplies of LTE-SoC such as 1.5V, 1.8V and VTT supply for DDR memories are generated from 3.3V supply through voltage regulators. 1.8V is further converted to 1.3V required for RF Transceiver through a LDO. 
 
 ####Power Sequence
 
@@ -14,9 +16,16 @@ Power sequence of TRX module is as shown below:
 
 --Power sequence diagram to be inserted here -- 
 
-Once 12V supply input is applied, 5V will be generated immediately, which inturn is supplied to LM73606 to generate 3.3V system supply. 
+High level Power sequence followed in TRX module design is in the order of System supplies -> LTE-SoC -> DDR -> System Reset release. 
 
-Further, supplies required for CNF7130 will be generated simultaneously. 
+System input supply 12V is converted to 5V initially with a time delay of 50ms. The step-down converter used to convert 5V to 3.3V will have a delay of 30ms. 
+Once 3.3V is stable, the 3.3V power good signal asserted from step-down converter will drive enable pins of buck/dtep-down converters of LTE-SoC power supplies(1.8V, 1.5V and 1.1V). 
+
+A stable 1.1V will assert power good signal from buck converter which is used to enable remaining power supplies of LTE-SoC (1.35V and VTT).
+
+The 1.35V power good is then delayed by 150ms to ensure LTE-SoC and other peripherals are in powered-up state before releasing the Reset. 
+
+
 
 ####Power Dissipation
 
