@@ -38,8 +38,12 @@ Below table lists out different DDR signals and their functionality:
 |     DDR_RESET_L                                       |     Out        |     DDR3L DRAM Reset.                                                                            |
 |     DDR_COMP_DP    DDR_COMP_DN                        |     In/Out     |     DDR3L Compensation signals                                                                   |
 
+The termination scheme for DDR signals is as shown below:
 
-####NOR Flash
+![DDR Termination](https://ukama-site-assets.s3.amazonaws.com/hardware/DDR%20termination.png)
+
+
+#### NOR Flash
 
 TRX module is equipped with a 128MB parallel NOR flash which is configured as primary boot device. This Asynchronous memory will work with a supply voltage of 3.3V. 
 
@@ -51,43 +55,101 @@ Voltage compatibility of NOR flash with LTE-SoC is as follows:
 
 ##### High Level Noise Margin:
 
-| Driver  | Receiver  | Voh (min) | Vih (min) | Noise margin  |
+| Source  | Destination  | Voh (min) | Vih (min) | Noise margin  |
 |---------|-----------|-----------|-----------|---------------|
 | LTE-SOC | NOR flash | 2.6       | 2.31      | 0.29          |
 
 ##### Low Level Noise Margin:
-|     Driver       |     Receiver       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
 |------------------|--------------------|--------------------|--------------------|-----------------------|
 |     LTE-SOC      |     NOR flash      |     0.7            |     0.8            |     0.1               |
 
 ##### High Level Noise Margin:
-|     Driver         |     Receiver       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|     Source         |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
 |--------------------|--------------------|--------------------|--------------------|-----------------------|
 |     NOR   flash    |     LTE-SOC        |     2.805          |     2.31           |     0.495             |
 
 ##### Low Level Noise Margin:
-|     Driver         |     Receiver       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|     Source         |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
 |--------------------|--------------------|--------------------|--------------------|-----------------------|
 |     NOR   flash    |     LTE-SOC        |     0.495          |     0.825          |     0.33              |
 
 ##### High Level Noise Margin:
-|     Driver       |     Receiver       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|     Source       |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
 |------------------|--------------------|--------------------|--------------------|-----------------------|
 |     LTE-SOC      |     Latch          |     2.6            |     2.0            |     0.6               |
 
 ##### Low Level Noise Margin:
-|     Driver       |     Receiver       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
 |------------------|--------------------|--------------------|--------------------|-----------------------|
 |     LTE-SOC      |     Latch          |     0.7            |     0.8            |     0.1               |
 
 ##### High Level Noise Margin:
-|     Driver       |     Receiver       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|     Source       |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
 |------------------|--------------------|--------------------|--------------------|-----------------------|
 |     Latch        |     NOR   flash    |     3.1            |     2.31           |     0.79              |
 
 ##### Low Level Noise Margin:
-|     Driver       |     Receiver       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
 |------------------|--------------------|--------------------|--------------------|-----------------------|
 |     Latch        |     NOR   flash    |     0.55           |     0.8            |     0.25              |
+
+
+#### eMMC
+
+Additional storage option is provided in TRX module in the form of eMMC memory IC which is complaint with eMMC Specification Ver 5.1. 
+
+eMMC memory architecture is as shown below:
+
+![eMMC](https://ukama-site-assets.s3.amazonaws.com/hardware/eMMC.png)
+
+Data bus of eMMC IC is connected to LTE-SoC via shared boot bus. Clock signal is derived from CE_5 pin of LTE-SoC and Command signal is derived from CE_1 pin of LTE-SoC
+
+All the MMC signals are connected to eMMC device via a FET Switch which acts as level shifter and is enabled through GPIO_8 from LTE-SoC. 
+A Complimentary pair enhancement mode MOSFET is used to control the power supply of eMMC which is also driven from GPIO_8 from LTE-SoC.
+
+Voltage compatibility of eMMC with LTE-SoC is as follows:
+
+##### High Level Noise Margin:
+
+| Source  | Destination  | Voh (min) | Vih (min) | Noise margin  |
+|---------|-----------|-----------|-----------|---------------|
+| LTE-SOC | FET Switch | 2.6       | 2.31      | 0.29          |
+
+##### Low Level Noise Margin:
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|------------------|--------------------|--------------------|--------------------|-----------------------|
+|     LTE-SOC      |     FET Switch      |     0.7            |     0.8            |     0.1               |
+
+##### High Level Noise Margin:
+|     Source         |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|--------------------|--------------------|--------------------|--------------------|-----------------------|
+|     FET Switch    |     LTE-SOC        |     2.805          |     2.31           |     0.495             |
+
+##### Low Level Noise Margin:
+|     Source         |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|--------------------|--------------------|--------------------|--------------------|-----------------------|
+|     FET Switch    |     LTE-SOC        |     0.495          |     0.825          |     0.33              |
+
+##### High Level Noise Margin:
+|     Source       |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|------------------|--------------------|--------------------|--------------------|-----------------------|
+|     FET Switch      |     eMMC          |     2.6            |     2.0            |     0.6               |
+
+##### Low Level Noise Margin:
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|------------------|--------------------|--------------------|--------------------|-----------------------|
+|     FET Switch      |     eMMC          |     0.7            |     0.8            |     0.1               |
+
+##### High Level Noise Margin:
+|     Source       |     Destination       |     Voh   (min)    |     Vih   (min)    |     Noise   margin    |
+|------------------|--------------------|--------------------|--------------------|-----------------------|
+|     eMMC        |     FET Switch    |     3.1            |     2.31           |     0.79              |
+
+##### Low Level Noise Margin:
+|     Source       |     Destination       |     Vol   (max)    |     Vil   (max)    |     Noise   margin    |
+|------------------|--------------------|--------------------|--------------------|-----------------------|
+|     eMMC        |     FET Switch    |     0.55           |     0.8            |     0.25              |
+
 
 
