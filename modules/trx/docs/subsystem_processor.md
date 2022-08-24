@@ -19,7 +19,40 @@ Up to 32GB DDR3 RAMs can be connected to LMC SDRAM controller. In TRX module, 4G
 
 The Level-2 Cache Controller (L2C) has shared on-chip cache memory which is shared be all of the cores and I/O components on LTE-SOC. 
 
-LTE-SoC also implements a boot-bus interface that can be interfaced with NOR, eMMC, or SD flash devices. In TRX module, NOR flash is used as primary boot device and eMMC memory is used as additional storage device. 
+##### LTE-SoC Internal Clock Architecture
+
+LTE-SoC has a single reference clock signal (PLL_REF_CLK) that feeds into three PLLs (Core PLL, Co-processor PLL and DDR PLL) that provide the clock signals for the rest of the chip.
+Each PLL has its own set of PLL_REF_CLK multipliers, allowing each to generate its own frequency.
+
+The Core PLL generates the core clock, which is used by the MIPS cores. The frequency is configured by using pin straps during Reset release. PLL_MUL_[4:0] pins are used as below: 
+
+| PLL_MUL[4:0] | Clock Frequency |
+|--------------|-----------------|
+| 0x02         | 400MHz          |
+| 0x06         | 600MHz          |
+| 0x0A         | 800MHz          |
+| 0x0E         | 1.0GHz          |
+All other options are reserved
+
+The Coprocessor PLL generates the coprocessor clock, which is used by the rest of the coprocessors and the I/O interfaces. The frequency is determined by pin straps connected to SYS_PLL_MUL_[4:0] pins and are listed as below:
+
+| SYS_PLL_MU[4:0] | Clock Frequency |
+|-----------------|-----------------|
+| 0x02            | 400MHz          |
+| 0x06            | 600MHz          |
+| 0x0A            | 800MHz          |
+All other options are reserved
+
+Below diagram shows the internal clock scheme of LTE-SoC:
+
+![processor-clock](https://ukama-site-assets.s3.amazonaws.com/hardware/Processor-Clock%20internal.png)
+
+Notes:-
+      w : SMI_CLK[PHASE]  
+
+##### Boot process
+
+LTE-SoC implements a boot-bus interface that can be interfaced with NOR, eMMC, or SD flash devices. In TRX module, NOR flash is used as primary boot device and eMMC memory is used as additional storage device. 
 There are 8 Chip selects and 32bit Address/Data lines in boot bus.
 When configured in 8bit data width option, BOOT_AD[31:24] is the data bus.
 The boot bus consumes a 4GB portion of the LTE-SoC physical-address (PA) space range from 0x1 0000 0000 0000 to 0x1 0000 FFFF FFFF. 
@@ -36,5 +69,6 @@ The pin straps that LTE-SoC uses for configuration are shown below:
 | BOOT_AD[10:9] | External pull-up resistors that change the boot-bus-driver drive strength in the following manner: <br /> [00] : Full strength <br /> [01] : 20 ohm <br /> [10] : 50 ohm <br /> [11] : 60 ohm |
 | BOOT_AD[8]    | When an external pull-down resistor is connected, SoC will boot from NOR Flash                                                                                            |
 | BOOT_AD[7:0]  | When using eMMC, BOOT_AD[7:0] is EMMC_DAT[7:0].                                                                                                                           |
+
 
 
