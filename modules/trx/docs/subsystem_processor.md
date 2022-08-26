@@ -137,7 +137,7 @@ Optionally, UART1 signals are also brought to a 3 pin header.
 
 The PCIe and SGMII interfaces are shared SerDes interfaces of LTE-SoC. The SerDes interface is made up of two two-lane modules (DLM0 and DLM1). 
 The DLMs have the following configurations:
-* DLM0: 2× SGMII
+* DLM0: 2× SGMII/1000 Base-X
 * DLM1: PCIe (one ×2 or 2 ×1)
 
 
